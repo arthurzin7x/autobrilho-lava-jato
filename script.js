@@ -78,7 +78,7 @@ form.addEventListener('submit', (e) => {
   }
 
   const valorFormatado = `R$ ${totalFinal.toFixed(2).replace('.', ',')}`;
-  const numeroLoja = '5561999999999'; // Coloque seu número real aqui (55 + DDD + número)
+  const numeroLoja = '5561996195327'; // Coloque seu número real aqui (55 + DDD + número)
 
   let mensagem =
     `Olá, AutoBrilho! Quero fazer uma lavagem:%0A%0A` +

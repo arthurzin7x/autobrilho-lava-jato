@@ -386,7 +386,9 @@ body {
   border-radius: 12px;
   padding: 32px;
   max-width: 750px;
+  width: 100%;
   margin: 0 auto;
+  overflow-x: clip;
 }
 
 .porte-selector {
@@ -456,19 +458,25 @@ body {
 
 .inputs-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 12px;
   margin-bottom: 24px;
+  width: 100%;
+  min-width: 0;
 }
 
 .inputs-grid input,
 .inputs-grid select {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   background-color: var(--bg-dark);
   border: 1px solid var(--border);
   color: var(--text-light);
-  padding: 14px;
+  padding: 12px 14px;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  text-overflow: ellipsis;
 }
 
 .inputs-grid select {
@@ -527,6 +535,9 @@ body {
 }
 
 @media (max-width: 600px) {
+  body {
+    overflow-x: clip;
+  }
   .hero h1 {
     font-size: 2rem;
   }
@@ -535,5 +546,13 @@ body {
   }
   .nav a:not(.btn-nav) {
     display: none;
+  }
+  .orcamento-box {
+    padding: 20px 14px;
+  }
+  .inputs-grid input,
+  .inputs-grid select {
+    padding: 10px 12px;
+    font-size: 0.86rem;
   }
 }
