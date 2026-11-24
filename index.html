@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoBrilho | Estética Automotiva & Lava-Jato</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="header">
+    <div class="container header-content">
+      <a href="#" class="logo">Auto<span>Brilho</span></a>
+      <nav class="nav">
+        <a href="#pacotes">Pacotes</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#orcamento" class="btn-nav">Agendar</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner Principal -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="badge">Estética Automotiva Profissional</span>
+      <h1>O cuidado que o seu carro merece, com brilho de zero km.</h1>
+      <p>Lavagem detalhada, proteção de pintura e higienização interna com produtos biodegradáveis de alta performance.</p>
+      <div class="hero-buttons">
+        <a href="#orcamento" class="btn-primary">Monte seu Orçamento</a>
+        <a href="#pacotes" class="btn-secondary">Ver Pacotes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Pacotes -->
+  <section id="pacotes" class="section container">
+    <div class="section-header">
+      <h2>Nossos Pacotes</h2>
+      <p>Escolha o tratamento ideal para o estado atual do seu veículo</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-top">
+          <h3>Lavagem Simples</h3>
+          <p>Ducha externa com shampoo neutro, aspiração interna rápida e pretinho nos pneus.</p>
+        </div>
+        <div class="card-bottom">
+          <span class="tempo">⏱ ~40 min</span>
+          <div class="preco">R$ 50</div>
+          <button type="button" class="btn-outline" onclick="selecionarPacote('Lavagem Simples')">Selecionar</button>
+        </div>
+      </div>
+
+      <div class="card destaque">
+        <span class="tag-destaque">Mais Pedido</span>
+        <div class="card-top">
+          <h3>Lavagem Completa</h3>
+          <p>Lavagem detalhada externa, cera líquida protetora, hidratação de plásticos e aspiração profunda.</p>
+        </div>
+        <div class="card-bottom">
+          <span class="tempo">⏱ ~1h 20m</span>
+          <div class="preco">R$ 90</div>
+          <button type="button" class="btn-primary" onclick="selecionarPacote('Lavagem Completa')">Selecionar</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <h3>Higienização Interna</h3>
+          <p>Limpeza profunda de bancos, teto, carpetes e oxi-sanitização completa do ar-condicionado.</p>
+        </div>
+        <div class="card-bottom">
+          <span class="tempo">⏱ ~3h 00m</span>
+          <div class="preco">R$ 180</div>
+          <button type="button" class="btn-outline" onclick="selecionarPacote('Higienização Interna')">Selecionar</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <h3>Enceramento Técnico</h3>
+          <p>Descontaminação leve da pintura e aplicação de cera de carnaúba para brilho espelhado.</p>
+        </div>
+        <div class="card-bottom">
+          <span class="tempo">⏱ ~1h 00m</span>
+          <div class="preco">R$ 70</div>
+          <button type="button" class="btn-outline" onclick="selecionarPacote('Enceramento Técnico')">Selecionar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais -->
+  <section id="diferenciais" class="diferenciais">
+    <div class="container">
+      <div class="dif-grid">
+        <div class="dif-item">
+          <h4>💧 Produtos pH Neutro</h4>
+          <p>Não agridem o verniz, plásticos ou borrachas do seu veículo.</p>
+        </div>
+        <div class="dif-item">
+          <h4>🛋️ Sala de Espera VIP</h4>
+          <p>Ambiente climatizado com Wi-Fi rápido e café enquanto você aguarda.</p>
+        </div>
+        <div class="dif-item">
+          <h4>⚡ Agendamento com Hora Marcada</h4>
+          <p>Sem filas longas. Chegou no horário, seu carro já entra no box.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculadora de Orçamento + Agendamento -->
+  <section id="orcamento" class="section container">
+    <div class="section-header">
+      <h2>Calculadora de Orçamento</h2>
+      <p>Selecione o porte do veículo e os serviços para ver o valor na hora</p>
+    </div>
+
+    <div class="orcamento-box">
+      <form id="form-orcamento">
+        <!-- Seletor de Porte -->
+        <div class="porte-selector">
+          <label class="porte-option">
+            <input type="radio" name="porte" value="0" checked>
+            <span>Hatch / Sedan (Valor base)</span>
+          </label>
+          <label class="porte-option">
+            <input type="radio" name="porte" value="20">
+            <span>SUV / Caminhonete (+ R$ 20 por serviço)</span>
+          </label>
+        </div>
+
+        <!-- Checkboxes de Serviços -->
+        <div class="servicos-lista">
+          <label class="servico-item">
+            <input type="checkbox" class="check-servico" data-nome="Lavagem Simples" data-tempo="40" value="50">
+            <div class="servico-info">
+              <strong>Lavagem Simples</strong>
+              <span>40 min</span>
+            </div>
+            <span class="servico-valor">R$ 50</span>
+          </label>
+
+          <label class="servico-item">
+            <input type="checkbox" class="check-servico" data-nome="Lavagem Completa" data-tempo="80" value="90">
+            <div class="servico-info">
+              <strong>Lavagem Completa</strong>
+              <span>1h 20m</span>
+            </div>
+            <span class="servico-valor">R$ 90</span>
+          </label>
+
+          <label class="servico-item">
+            <input type="checkbox" class="check-servico" data-nome="Higienização Interna" data-tempo="180" value="180">
+            <div class="servico-info">
+              <strong>Higienização Interna</strong>
+              <span>3h 00m</span>
+            </div>
+            <span class="servico-valor">R$ 180</span>
+          </label>
+
+          <label class="servico-item">
+            <input type="checkbox" class="check-servico" data-nome="Enceramento Técnico" data-tempo="60" value="70">
+            <div class="servico-info">
+              <strong>Enceramento Técnico</strong>
+              <span>1h 00m</span>
+            </div>
+            <span class="servico-valor">R$ 70</span>
+          </label>
+        </div>
+
+        <!-- Dados do Cliente -->
+        <div class="inputs-grid">
+          <input type="text" id="cliente-nome" placeholder="Seu nome completo" required>
+          <input type="text" id="cliente-carro" placeholder="Modelo e cor do carro (Ex: Civic Preto)" required>
+          <input type="text" id="cliente-data" placeholder="Dia e horário desejado (Ex: Sábado às 10h)" required>
+        </div>
+
+        <!-- Resumo em Tempo Real -->
+        <div class="resumo-bar">
+          <div>
+            <span class="resumo-label">Tempo estimado: <strong id="tempo-total">0 min</strong></span>
+            <div class="resumo-preco">Total: <strong id="valor-total">R$ 0,00</strong></div>
+          </div>
+          <button type="submit" class="btn-primary">Gerar Agendamento</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Modal de Comprovante -->
+  <div id="modal-comprovante" class="modal hidden">
+    <div class="modal-content">
+      <span class="modal-badge">✔ Pré-Agendamento Gerado</span>
+      <h3>Resumo do Pedido</h3>
+      <div id="detalhes-pedido" class="ticket-box"></div>
+      <div class="modal-actions">
+        <button type="button" id="btn-whats" class="btn-primary">Confirmar no WhatsApp</button>
+        <button type="button" id="btn-fechar" class="btn-secondary">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>AutoBrilho Estética Automotiva</strong> — Seg a Sáb, das 08h às 18h</p>
+      <p class="copy">&copy; 2026 AutoBrilho. Desenvolvido por Arthur da Silva.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
