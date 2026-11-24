@@ -273,6 +273,112 @@ body {
   font-size: 0.95rem;
 }
 
+/* Processo de Lavagem Segura */
+.processo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.passo-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.passo-num {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--primary);
+  background-color: rgba(14, 165, 233, 0.12);
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.passo-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.passo-card p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+/* Compromisso e FAQ */
+.confianca-box {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 36px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.confianca-texto h2 {
+  font-size: 1.85rem;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.confianca-texto > p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  font-size: 0.98rem;
+}
+
+.lista-garantias {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lista-garantias li {
+  background-color: var(--bg-dark);
+  border-left: 3px solid var(--primary);
+  padding: 12px 14px;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.lista-garantias strong {
+  color: var(--text-light);
+}
+
+.faq-coluna h3 {
+  font-size: 1.25rem;
+  margin-bottom: 14px;
+}
+
+.faq-item {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  list-style: none;
+}
+
+.faq-item p {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 /* Calculadora de Orçamento */
 .orcamento-box {
   background-color: var(--bg-card);
@@ -392,63 +498,6 @@ body {
   color: var(--primary);
 }
 
-/* Modal */
-.modal {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.75);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  z-index: 200;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-content {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 30px;
-  max-width: 460px;
-  width: 100%;
-  text-align: center;
-}
-
-.modal-badge {
-  background-color: rgba(16, 185, 129, 0.15);
-  color: #10b981;
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.modal-content h3 {
-  margin: 14px 0;
-  font-size: 1.5rem;
-}
-
-.ticket-box {
-  background-color: var(--bg-dark);
-  border: 1px dashed var(--border);
-  border-radius: 8px;
-  padding: 16px;
-  text-align: left;
-  font-size: 0.95rem;
-  margin-bottom: 20px;
-  line-height: 1.8;
-}
-
-.modal-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 /* Footer */
 .footer {
   border-top: 1px solid var(--border);
@@ -464,6 +513,13 @@ body {
 }
 
 /* Responsivo */
+@media (max-width: 820px) {
+  .confianca-box {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+}
+
 @media (max-width: 600px) {
   .hero h1 {
     font-size: 2rem;

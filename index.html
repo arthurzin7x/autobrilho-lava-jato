@@ -14,6 +14,7 @@
       <a href="#" class="logo">Auto<span>Brilho</span></a>
       <nav class="nav">
         <a href="#pacotes">Pacotes</a>
+        <a href="#seguranca">Segurança</a>
         <a href="#diferenciais">Diferenciais</a>
         <a href="#orcamento" class="btn-nav">Agendar</a>
       </nav>
@@ -112,20 +113,86 @@
     </div>
   </section>
 
-  <!-- Calculadora de Orçamento + Agendamento -->
+  <!-- Processo de Lavagem Segura -->
+  <section id="seguranca" class="section container">
+    <div class="section-header">
+      <h2>Protocolo de Lavagem Segura</h2>
+      <p>Cada etapa é pensada para proteger o verniz, os acabamentos e o interior do seu carro</p>
+    </div>
+
+    <div class="processo-grid">
+      <div class="passo-card">
+        <span class="passo-num">01</span>
+        <h3>Pré-lavagem e Descontaminação</h3>
+        <p>Amolecemos a sujeira pesada e a poeira abrasiva antes de encostar qualquer pano, reduzindo drasticamente o risco de micro-riscos na pintura.</p>
+      </div>
+
+      <div class="passo-card">
+        <span class="passo-num">02</span>
+        <h3>Ferramentas Separadas</h3>
+        <p>Usamos luvas e panos de microfibra dedicados exclusivamente para lataria, rodas e interior. Nada se mistura.</p>
+      </div>
+
+      <div class="passo-card">
+        <span class="passo-num">03</span>
+        <h3>Química Balanceada</h3>
+        <p>Shampoos de pH neutro e limpadores específicos para cada superfície — preservam ceras, selantes, borrachas e telas internas.</p>
+      </div>
+
+      <div class="passo-card">
+        <span class="passo-num">04</span>
+        <h3>Secagem Sem Arrasto</h3>
+        <p>Remoção do excesso de água com ar e toalhas de alta absorção, evitando marcas d'água e atrito desnecessário.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compromisso de Confiança e Dúvidas -->
+  <section id="confianca" class="section container">
+    <div class="confianca-box">
+      <div class="confianca-texto">
+        <span class="badge">Compromisso AutoBrilho</span>
+        <h2>Transparência antes, durante e depois do serviço</h2>
+        <p>Sabemos que confiar o carro a um novo lugar exige segurança. Por isso, mantemos regras claras em cada atendimento:</p>
+        <ul class="lista-garantias">
+          <li><strong>Conferência inicial:</strong> alinhamos o estado do veículo e suas prioridades antes de começar.</li>
+          <li><strong>Sem soluções agressivas:</strong> não usamos ácidos fortes sem critério nem jatos excessivos em áreas sensíveis.</li>
+          <li><strong>Horário combinado:</strong> o orçamento calculado no site serve como base clara antes do envio no WhatsApp.</li>
+        </ul>
+      </div>
+
+      <div class="faq-coluna">
+        <h3>Dúvidas frequentes</h3>
+        <details class="faq-item" open>
+          <summary>A lavagem pode riscar pintura escura ou recém-polida?</summary>
+          <p>O processo de pré-lavagem e microfibra limpa foi desenhado justamente para minimizar atrito em vernizes sensíveis, como preto e grafite.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Posso incluir mais de um serviço no mesmo dia?</summary>
+          <p>Sim. Na calculadora você pode combinar pacotes e conferir na hora a soma do valor e do tempo estimado.</p>
+        </details>
+        <details class="faq-item">
+          <summary>O valor do site já é fechado?</summary>
+          <p>É uma estimativa transparente baseada no porte e nos serviços escolhidos; qualquer necessidade extra é combinada com você antes.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculadora de Orçamento + Envio Direto WhatsApp -->
   <section id="orcamento" class="section container">
     <div class="section-header">
-      <h2>Calculadora de Orçamento</h2>
-      <p>Selecione o porte do veículo e os serviços para ver o valor na hora</p>
+      <h2>Monte seu Pedido e Vá para o WhatsApp</h2>
+      <p>Escolha o tipo de carro, marque a lavagem e informe seu veículo para enviar direto</p>
     </div>
 
     <div class="orcamento-box">
       <form id="form-orcamento">
-        <!-- Seletor de Porte -->
+        <!-- Seletor de Tipo de Veículo -->
         <div class="porte-selector">
           <label class="porte-option">
             <input type="radio" name="porte" value="0" checked>
-            <span>Hatch / Sedan (Valor base)</span>
+            <span>Carro comum (ex.: Onix, Civic)</span>
           </label>
           <label class="porte-option">
             <input type="radio" name="porte" value="20">
@@ -172,11 +239,11 @@
           </label>
         </div>
 
-        <!-- Dados do Cliente -->
+        <!-- Dados do Cliente e Carro -->
         <div class="inputs-grid">
-          <input type="text" id="cliente-nome" placeholder="Seu nome completo" required>
-          <input type="text" id="cliente-carro" placeholder="Modelo e cor do carro (Ex: Civic Preto)" required>
-          <input type="text" id="cliente-data" placeholder="Dia e horário desejado (Ex: Sábado às 10h)" required>
+          <input type="text" id="cliente-carro" placeholder="Qual é o seu carro? (Ex: Honda Civic Preto, Onix 2022)" required>
+          <input type="text" id="cliente-nome" placeholder="Seu nome (opcional)">
+          <input type="text" id="cliente-data" placeholder="Dia e horário preferido (opcional, ex: Amanhã às 14h)">
         </div>
 
         <!-- Resumo em Tempo Real -->
@@ -185,30 +252,17 @@
             <span class="resumo-label">Tempo estimado: <strong id="tempo-total">0 min</strong></span>
             <div class="resumo-preco">Total: <strong id="valor-total">R$ 0,00</strong></div>
           </div>
-          <button type="submit" class="btn-primary">Gerar Agendamento</button>
+          <button type="submit" class="btn-primary">Enviar no WhatsApp</button>
         </div>
       </form>
     </div>
   </section>
 
-  <!-- Modal de Comprovante -->
-  <div id="modal-comprovante" class="modal hidden">
-    <div class="modal-content">
-      <span class="modal-badge">✔ Pré-Agendamento Gerado</span>
-      <h3>Resumo do Pedido</h3>
-      <div id="detalhes-pedido" class="ticket-box"></div>
-      <div class="modal-actions">
-        <button type="button" id="btn-whats" class="btn-primary">Confirmar no WhatsApp</button>
-        <button type="button" id="btn-fechar" class="btn-secondary">Fechar</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Rodapé -->
   <footer class="footer">
     <div class="container">
       <p><strong>AutoBrilho Estética Automotiva</strong> — Seg a Sáb, das 08h às 18h</p>
-      <p class="copy">&copy; 2026 AutoBrilho. Desenvolvido por Arthur da Silva.</p>
+      <p class="copy">&copy; 2026 AutoBrilho. Desenvolvido por TH.</p>
     </div>
   </footer>
 

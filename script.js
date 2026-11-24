@@ -1,35 +1,31 @@
 const checkboxes = document.querySelectorAll('.check-servico');
 const radiosPorte = document.querySelectorAll('input[name="porte"]');
+const valoresOriginais = document.querySelectorAll('.servico-valor');
 const valorTotalEl = document.getElementById('valor-total');
 const tempoTotalEl = document.getElementById('tempo-total');
 const form = document.getElementById('form-orcamento');
 
-const modal = document.getElementById('modal-comprovante');
-const detalhesPedidoEl = document.getElementById('detalhes-pedido');
-const btnWhats = document.getElementById('btn-whats');
-const btnFechar = document.getElementById('btn-fechar');
-
-let urlWhatsAppAtual = '';
-
-// Função para calcular total e tempo em tempo real
+// Atualiza o preço de cada serviço na lista, o total e o tempo em tempo real
 function atualizarOrcamento() {
   let total = 0;
   let minutos = 0;
 
-  // Verifica adicional de porte (0 para Hatch/Sedan, 20 para SUV)
   const adicionalPorte = Number(document.querySelector('input[name="porte"]:checked').value);
 
-  checkboxes.forEach((box) => {
+  checkboxes.forEach((box, indice) => {
+    const valorBase = Number(box.value);
+    const precoItem = valorBase + adicionalPorte;
+
+    valoresOriginais[indice].textContent = `R$ ${precoItem}`;
+
     if (box.checked) {
-      total += Number(box.value) + adicionalPorte;
+      total += precoItem;
       minutos += Number(box.dataset.tempo);
     }
   });
 
-  // Formata valor
   valorTotalEl.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
 
-  // Formata tempo (minutos ou horas)
   if (minutos === 0) {
     tempoTotalEl.textContent = '0 min';
   } else if (minutos < 60) {
@@ -52,19 +48,18 @@ function selecionarPacote(nomePacote) {
   document.getElementById('orcamento').scrollIntoView({ behavior: 'smooth' });
 }
 
-// Escuta alterações nos checkboxes e no porte do veículo
 checkboxes.forEach((box) => box.addEventListener('change', atualizarOrcamento));
 radiosPorte.forEach((radio) => radio.addEventListener('change', atualizarOrcamento));
 
-// Envio do formulário e geração do comprovante
+// Envia direto para o WhatsApp ao clicar no botão
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const nome = document.getElementById('cliente-nome').value.trim();
   const carro = document.getElementById('cliente-carro').value.trim();
+  const nome = document.getElementById('cliente-nome').value.trim();
   const dataHorario = document.getElementById('cliente-data').value.trim();
   const adicionalPorte = Number(document.querySelector('input[name="porte"]:checked').value);
-  const porteTexto = adicionalPorte === 0 ? 'Hatch / Sedan' : 'SUV / Caminhonete';
+  const porteTexto = adicionalPorte === 0 ? 'Carro comum' : 'SUV / Caminhonete';
 
   const servicosSelecionados = [];
   let totalFinal = 0;
@@ -77,46 +72,26 @@ form.addEventListener('submit', (e) => {
   });
 
   if (servicosSelecionados.length === 0) {
-    alert('Selecione pelo menos um serviço antes de gerar o agendamento.');
+    alert('Marca pelo menos uma lavagem antes de ir para o WhatsApp.');
     return;
   }
 
-  // Gera número aleatório de protocolo
-  const protocolo = Math.floor(1000 + Math.random() * 9000);
   const valorFormatado = `R$ ${totalFinal.toFixed(2).replace('.', ',')}`;
+  const numeroLoja = '5561999999999'; // Troque pelo seu número com DDD
 
-  // Preenche o ticket visual no modal
-  detalhesPedidoEl.innerHTML = `
-    <strong>Protocolo:</strong> #${protocolo}<br>
-    <strong>Cliente:</strong> ${nome}<br>
-    <strong>Veículo:</strong> ${carro} (${porteTexto})<br>
-    <strong>Serviços:</strong> ${servicosSelecionados.join(', ')}<br>
-    <strong>Data/Hora:</strong> ${dataHorario}<br>
-    <strong>Total Estimado:</strong> ${valorFormatado}
-  `;
+  let mensagem =
+    `Olá, AutoBrilho! Quero fazer uma lavagem:%0A%0A` +
+    `*Carro:* ${carro} (${porteTexto})%0A` +
+    `*Lavagem / Serviços:* ${servicosSelecionados.join(', ')}%0A` +
+    `*Valor Estimado:* ${valorFormatado}`;
 
-  // Prepara link do WhatsApp
-  const numeroLoja = '5561999999999'; // Substitua pelo número desejado
-  const textoMensagem =
-    `Olá, AutoBrilho! Fiz um pré-agendamento pelo site:%0A%0A` +
-    `*Protocolo:* #${protocolo}%0A` +
-    `*Cliente:* ${nome}%0A` +
-    `*Veículo:* ${carro} (${porteTexto})%0A` +
-    `*Serviços:* ${servicosSelecionados.join(', ')}%0A` +
-    `*Horário:* ${dataHorario}%0A` +
-    `*Total Estimado:* ${valorFormatado}`;
+  if (nome) {
+    mensagem += `%0A*Nome:* ${nome}`;
+  }
+  if (dataHorario) {
+    mensagem += `%0A*Horário:* ${dataHorario}`;
+  }
 
-  urlWhatsAppAtual = `https://wa.me/${numeroLoja}?text=${textoMensagem}`;
-
-  // Abre o modal
-  modal.classList.remove('hidden');
-});
-
-// Botões do Modal
-btnWhats.addEventListener('click', () => {
-  window.open(urlWhatsAppAtual, '_blank');
-});
-
-btnFechar.addEventListener('click', () => {
-  modal.classList.add('hidden');
+  const urlWhatsApp = `https://wa.me/${numeroLoja}?text=${mensagem}`;
+  window.open(urlWhatsApp, '_blank');
 });
