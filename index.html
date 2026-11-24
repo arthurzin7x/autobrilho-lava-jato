@@ -157,7 +157,7 @@
         <ul class="lista-garantias">
           <li><strong>Conferência inicial:</strong> alinhamos o estado do veículo e suas prioridades antes de começar.</li>
           <li><strong>Sem soluções agressivas:</strong> não usamos ácidos fortes sem critério nem jatos excessivos em áreas sensíveis.</li>
-          <li><strong>Horário combinado:</strong> o orçamento calculado no site serve como base clara antes do envio no WhatsApp.</li>
+          <li><strong>Pagamento na entrega:</strong> você só paga na retirada do carro, após conferir o resultado.</li>
         </ul>
       </div>
 
@@ -168,12 +168,12 @@
           <p>O processo de pré-lavagem e microfibra limpa foi desenhado justamente para minimizar atrito em vernizes sensíveis, como preto e grafite.</p>
         </details>
         <details class="faq-item">
-          <summary>Posso incluir mais de um serviço no mesmo dia?</summary>
-          <p>Sim. Na calculadora você pode combinar pacotes e conferir na hora a soma do valor e do tempo estimado.</p>
+          <summary>Como fico sabendo quando o carro ficar pronto?</summary>
+          <p>Assim que o serviço termina e passa pela conferência final, avisamos direto no seu WhatsApp para você retirar o veículo com tranquilidade.</p>
         </details>
         <details class="faq-item">
-          <summary>O valor do site já é fechado?</summary>
-          <p>É uma estimativa transparente baseada no porte e nos serviços escolhidos; qualquer necessidade extra é combinada com você antes.</p>
+          <summary>Posso incluir mais de um serviço no mesmo dia?</summary>
+          <p>Sim. Na calculadora você pode combinar pacotes e conferir na hora a soma do valor e do tempo estimado.</p>
         </details>
       </div>
     </div>
@@ -239,11 +239,18 @@
           </label>
         </div>
 
-        <!-- Dados do Cliente e Carro -->
+        <!-- Dados do Cliente, Carro e Pagamento -->
         <div class="inputs-grid">
           <input type="text" id="cliente-carro" placeholder="Qual é o seu carro? (Ex: Honda Civic Preto, Onix 2022)" required>
           <input type="text" id="cliente-nome" placeholder="Seu nome (opcional)">
           <input type="text" id="cliente-data" placeholder="Dia e horário preferido (opcional, ex: Amanhã às 14h)">
+          <select id="cliente-pagamento" required>
+            <option value="" disabled selected>Forma de pagamento (na retirada do carro)</option>
+            <option value="Pix">Pix</option>
+            <option value="Cartão de Crédito">Cartão de Crédito</option>
+            <option value="Cartão de Débito">Cartão de Débito</option>
+            <option value="Dinheiro">Dinheiro</option>
+          </select>
         </div>
 
         <!-- Resumo em Tempo Real -->

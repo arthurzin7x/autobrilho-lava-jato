@@ -58,6 +58,7 @@ form.addEventListener('submit', (e) => {
   const carro = document.getElementById('cliente-carro').value.trim();
   const nome = document.getElementById('cliente-nome').value.trim();
   const dataHorario = document.getElementById('cliente-data').value.trim();
+  const pagamento = document.getElementById('cliente-pagamento').value;
   const adicionalPorte = Number(document.querySelector('input[name="porte"]:checked').value);
   const porteTexto = adicionalPorte === 0 ? 'Carro comum' : 'SUV / Caminhonete';
 
@@ -77,12 +78,13 @@ form.addEventListener('submit', (e) => {
   }
 
   const valorFormatado = `R$ ${totalFinal.toFixed(2).replace('.', ',')}`;
-  const numeroLoja = '5561996195327'; // Troque pelo seu número com DDD
+  const numeroLoja = '5561999999999'; // Coloque seu número real aqui (55 + DDD + número)
 
   let mensagem =
     `Olá, AutoBrilho! Quero fazer uma lavagem:%0A%0A` +
     `*Carro:* ${carro} (${porteTexto})%0A` +
     `*Lavagem / Serviços:* ${servicosSelecionados.join(', ')}%0A` +
+    `*Pagamento (na retirada):* ${pagamento}%0A` +
     `*Valor Estimado:* ${valorFormatado}`;
 
   if (nome) {

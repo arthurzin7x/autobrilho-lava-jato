@@ -461,7 +461,8 @@ body {
   margin-bottom: 24px;
 }
 
-.inputs-grid input {
+.inputs-grid input,
+.inputs-grid select {
   background-color: var(--bg-dark);
   border: 1px solid var(--border);
   color: var(--text-light);
@@ -470,7 +471,12 @@ body {
   font-size: 1rem;
 }
 
-.inputs-grid input:focus {
+.inputs-grid select {
+  cursor: pointer;
+}
+
+.inputs-grid input:focus,
+.inputs-grid select:focus {
   outline: none;
   border-color: var(--primary);
 }
